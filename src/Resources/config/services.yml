@@ -1,7 +1,7 @@
 services:
 
     angelov_result_lists.pagination.url_generator:
-        class: 'Angelov\ResultLists\ResultLists\Pagination\UrlGenerators\RoutingPaginationUrlGenerator\RoutingPaginationUrlGenerator'
+        class: 'Angelov\ResultLists\Pagination\UrlGenerators\RoutingPaginationUrlGenerator\RoutingPaginationUrlGenerator'
         arguments:
             - '@router'
             - '@angelov_result_lists.current_page_resolver'
@@ -9,22 +9,22 @@ services:
             - '@angelov_result_lists.pagination.url_generator.routing_url_generator.url_properties_resolver'
 
     angelov_result_lists.current_page_resolver:
-        class: 'Angelov\ResultLists\ResultLists\Pagination\CurrentPageResolvers\RequestCurrentPageResolver'
+        class: 'Angelov\ResultLists\Pagination\CurrentPageResolvers\RequestCurrentPageResolver'
         arguments: ['@request_stack']
 
     angelov_result_lists.pagination.url_generator.routing_url_generator.url_properties_resolver:
-        class: 'Angelov\ResultLists\ResultLists\Pagination\UrlGenerators\RoutingPaginationUrlGenerator\UrlPropertiesResolver\RequestUrlPropertiesResolver'
+        class: 'Angelov\ResultLists\Pagination\UrlGenerators\RoutingPaginationUrlGenerator\UrlPropertiesResolver\RequestUrlPropertiesResolver'
         arguments: ['@request_stack']
 
     angelov_result_lists.pagination.url_generator.routing_url_generator.route_name_resolver:
-        class: 'Angelov\ResultLists\ResultLists\Pagination\UrlGenerators\RoutingPaginationUrlGenerator\RouteNameResolver\RequestRouteNameResolver'
+        class: 'Angelov\ResultLists\Pagination\UrlGenerators\RoutingPaginationUrlGenerator\RouteNameResolver\RequestRouteNameResolver'
         arguments: ['@request_stack']
 
     angelov_result_lists.pagination.page_existence_checker:
-        class: 'Angelov\ResultLists\ResultLists\Pagination\PageExistenceChecker\PageExistenceChecker'
+        class: 'Angelov\ResultLists\Pagination\PageExistenceChecker\PageExistenceChecker'
 
     angelov_result_lists.pagination.renderers.twig:
-        class: 'Angelov\ResultLists\ResultLists\Pagination\Renderers\TwigPaginationRenderer'
+        class: 'Angelov\ResultLists\Pagination\Renderers\TwigPaginationRenderer'
         arguments:
             - '@twig'
             - '@angelov_result_lists.pagination.url_generator'
@@ -32,7 +32,7 @@ services:
             - '@angelov_result_lists.pagination.page_existence_checker'
 
     angelov_result_lists.pagination.twig.extension:
-        class: 'Angelov\ResultLists\ResultLists\Pagination\PaginationRendererTwigExtension'
+        class: 'Angelov\ResultLists\Pagination\PaginationRendererTwigExtension'
         arguments: ['@angelov_result_lists.pagination.renderers.twig']
         tags:
             - { name: 'twig.extension' }
