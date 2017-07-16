@@ -1,0 +1,28 @@
+{
+    "name": "angelov/result-lists-bundle",
+    "type": "symfony-bundle",
+    "description": "Building paginatable & sortable result lists",
+    "homepage": "https://github.com/angelov/AngelovResultListsBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dejan Angelov",
+            "email": "angelovdejan92@gmail.com",
+            "homepage": "http://angelovdejan.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {  
+            "Angelov\\ResultListsBundle\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "angelov/result-lists": "dev-master",
+        "symfony/framework-bundle": "^3.3"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^3.4",
+        "matthiasnoback/symfony-dependency-injection-test": "^2.1"
+    }
+}
